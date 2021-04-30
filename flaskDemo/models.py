@@ -13,58 +13,50 @@ def load_user(user_id):
 
 class User(db.Model, UserMixin):
     __table_args__ = {'extend_existing': True}
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(20), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
-    password = db.Column(db.String(60), nullable=False)
-    posts = db.relationship('Post', backref='author', lazy=True)
+    UserID = db.Column(db.Integer, primary_key=True)
+    Username = db.Column(db.String(20), unique=True, nullable=False)
+    Email = db.Column(db.String(120), unique=True, nullable=False)
+    Password = db.Column(db.String(60), nullable=False)
+
 
     def __repr__(self):
-        return f"User('{self.username}', '{self.email}', '{self.image_file}')"
-
-
-class Post(db.Model):
-     __table_args__ = {'extend_existing': True}
-     id = db.Column(db.Integer, primary_key=True)
-     title = db.Column(db.String(100), nullable=False)
-     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-     content = db.Column(db.Text, nullable=False)
-     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-
-     def __repr__(self):
-         return f"Post('{self.title}', '{self.date_posted}')"
+        return f"User('{self.Username}', '{self.Email}')"
 
 
 
 
-
-
-class Dependent(db.Model):
-    __table__ = db.Model.metadata.tables['dependent']
+class Category(db.Model):
+    __table__ = db.Model.metadata.tables['Category']
     
-class Department(db.Model):
-    __table__ = db.Model.metadata.tables['department']
+class Order(db.Model):
+    __table__ = db.Model.metadata.tables['Orders']
 
-# used for query_factory
-def getDepartment(columns=None):
-    u = Department.query
+
+class Payment(db.Model):
+    __table__ = db.Model.metadata.tables['Payment']
+    
+class Product(db.Model):
+    __table__ = db.Model.metadata.tables['Products']
+class Shipper(db.Model):
+    __table__ = db.Model.metadata.tables['Shippers']
+class Supply(db.Model):
+    __table__ = db.Model.metadata.tables['Supply']
+
+class OrderDetail(db.Model):
+    __table__ = db.Model.metadata.tables['OrderDetails']
+
+class Supplier(db.Model):
+    __table__ = db.Model.metadata.tables['Suppliers']
+
+def getSupplier(columns=None):
+    u = Supplier.query
     if columns:
         u = u.options(orm.load_only(*columns))
     return u
 
-def getDepartmentFactory(columns=None):
-    return partial(getDepartment, columns=columns)
 
-class Dept_Locations(db.Model):
-    __table__ = db.Model.metadata.tables['dept_locations']
-    
-class Employee(db.Model):
-    __table__ = db.Model.metadata.tables['employee']
-class Project(db.Model):
-    __table__ = db.Model.metadata.tables['project']
-class Works_On(db.Model):
-    __table__ = db.Model.metadata.tables['works_on']
+
+
 
     
 
