@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+	  {% for row in joined_m_n %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2">{{ row.ProductName }} - {{row.ContactFname}} {{row.ContactLname}}</a> <br/>
+              <small class="text-muted">Product ID: {{row.ProductID}} - Supplier ID: {{row.SupplierID}}</small>
+            </div>
+          </div>
+        </article>
+     {% endfor %}
+	
+{% endblock content %}

@@ -18,6 +18,8 @@ class User(db.Model, UserMixin):
     Email = db.Column(db.String(120), unique=True, nullable=False)
     Password = db.Column(db.String(60), nullable=False)
 
+    def get_id(self):
+           return (self.UserID)
 
     def __repr__(self):
         return f"User('{self.Username}', '{self.Email}')"
