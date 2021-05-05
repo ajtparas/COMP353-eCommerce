@@ -1,0 +1,17 @@
+{% extends "update_payment.html" %}
+
+			{% block PaymentID %}
+            <div class="form-group">
+                {{ form.PaymentID.label(class="form-control-label") }}
+                {% if form.PaymentID.errors %}
+                    {{ form.PaymentID(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.PaymentID.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.PaymentID(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+			{% endblock PaymentID %}

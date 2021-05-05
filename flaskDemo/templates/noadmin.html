@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="card text-center noadmincard">
+      <div class="card-header">
+        Sports eCommerce Shop
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Admin Panel Login Page</h5>
+        <p class="card-text">Please login to your admin panel page. You can also register your account at the top with provided email informartion.</p>
+        <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
+      </div>
+      <div class="card-footer text-muted">
+        COMP 353 Project
+      </div>
+    </div>
+{% endblock content %}

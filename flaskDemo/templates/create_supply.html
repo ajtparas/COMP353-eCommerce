@@ -6,29 +6,29 @@
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">{{ legend }}</legend>
             <div class="form-group">
-                {{ form.pno.label(class="form-control-label") }}
-                {% if form.pno.errors %}
-                    {{ form.pno(class="form-control form-control-lg is-invalid") }}
+                {{ form.ProductID.label(class="form-control-label") }}
+                {% if form.ProductID.errors %}
+                    {{ form.ProductID(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
-                        {% for error in form.pno.errors %}
+                        {% for error in form.ProductID.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.pno(class="form-control form-control-lg") }}
+                    {{ form.ProductID(class="form-control form-control-lg") }}
                 {% endif %}
             </div>
             <div class="form-group">
-                {{ form.ssn.label(class="form-control-label") }}
-                {% if form.ssn.errors %}
-                    {{ form.ssn(class="form-control form-control-lg is-invalid") }}
+                {{ form.SupplierID.label(class="form-control-label") }}
+                {% if form.SupplierID.errors %}
+                    {{ form.SupplierID(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
-                        {% for error in form.ssn.errors %}
+                        {% for error in form.SupplierID.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.ssn(class="form-control form-control-lg") }}
+                    {{ form.SupplierID(class="form-control form-control-lg") }}
                 {% endif %}
             </div>
         </fieldset>

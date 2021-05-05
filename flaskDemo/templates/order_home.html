@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for row in outString %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{{ url_for('order', OrderID=row.OrderID) }}">See more Details</a>      
+              <small class="text-muted"> Order ID: {{ row['OrderID'] }} </small>      
+            </div>
+      <h3><a class="article-title"> Customer ID: {{ row.CustomerID }}</a></h3>
+      <h3>Payment ID: {{ row.PaymentID }} </h3>
+      <h3>Shipper ID: {{ row.ShipperID }} </h3>
+           
+          </div>
+        </article>
+     {% endfor %}
+{% endblock content %}

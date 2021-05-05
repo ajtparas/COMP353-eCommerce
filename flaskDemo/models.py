@@ -3,6 +3,9 @@ from flaskDemo import db, login_manager
 from flask_login import UserMixin
 from functools import partial
 from sqlalchemy import orm
+from sqlalchemy import Column, Integer, ForeignKey
+from sqlalchemy.orm import backref
+from sqlalchemy.orm import relationship
 
 db.Model.metadata.reflect(db.engine)
 
@@ -34,8 +37,10 @@ class Order(db.Model):
     __table__ = db.Model.metadata.tables['Orders']
 
 
+
 class Payment(db.Model):
     __table__ = db.Model.metadata.tables['Payment']
+    
     
 class Product(db.Model):
     __table__ = db.Model.metadata.tables['Products']
@@ -44,11 +49,16 @@ class Shipper(db.Model):
 class Supply(db.Model):
     __table__ = db.Model.metadata.tables['Supply']
 
+
+
+
 class OrderDetail(db.Model):
     __table__ = db.Model.metadata.tables['OrderDetails']
 
 class Supplier(db.Model):
     __table__ = db.Model.metadata.tables['Suppliers']
+   
+
 
 def getSupplier(columns=None):
     u = Supplier.query

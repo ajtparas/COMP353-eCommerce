@@ -1,0 +1,17 @@
+{% extends "update_product.html" %}
+
+			{% block ProductID %}
+            <div class="form-group">
+                {{ form.ProductID.label(class="form-control-label") }}
+                {% if form.ProductID.errors %}
+                    {{ form.ProductID(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.ProductID.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.ProductID(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+			{% endblock ProductID %}

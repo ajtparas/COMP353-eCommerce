@@ -1,0 +1,17 @@
+{% extends "update_category.html" %}
+
+			{% block CategoryID %}
+            <div class="form-group">
+                {{ form.CategoryID.label(class="form-control-label") }}
+                {% if form.CategoryID.errors %}
+                    {{ form.CategoryID(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.CategoryID.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.CategoryID(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+			{% endblock CategoryID %}

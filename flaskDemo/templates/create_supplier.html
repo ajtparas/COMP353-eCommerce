@@ -1,0 +1,17 @@
+{% extends "update_supplier.html" %}
+
+			{% block SupplierID %}
+            <div class="form-group">
+                {{ form.SupplierID.label(class="form-control-label") }}
+                {% if form.SupplierID.errors %}
+                    {{ form.SupplierID(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.SupplierID.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.SupplierID(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+			{% endblock SupplierID %}

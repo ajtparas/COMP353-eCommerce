@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for row in outString %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{{ url_for('payment', PaymentID=row.PaymentID) }}">Edit</a>      
+              <small class="text-muted"> Payment ID: {{ row['PaymentID'] }} </small>      
+            </div>
+      <h2><a class="article-title" href="{{ url_for('payment', PaymentID=row.PaymentID) }}"> Payment Type:  {{ row.PaymentType}}</a></h2>
+           
+          </div>
+        </article>
+     {% endfor %}
+{% endblock content %}

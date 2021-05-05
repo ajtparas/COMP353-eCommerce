@@ -1,8 +1,6 @@
-
-
- body {
-  background-color: #687980;
-  color: #687980;
+body {
+  background: #f8f4e1;
+  color: #333333;
   margin-top: 5rem;
 }
 
@@ -11,11 +9,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-primary {
-  background-color: #687980;
+  background-color: #5f788a;
 }
 
 .site-header .navbar-nav .nav-link {
-  color: #687980;
+  color: #cbd5db;
 }
 
 .site-header .navbar-nav .nav-link:hover {
@@ -27,7 +25,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .content-section {
-  background: #687980;
+  background: #ffffff;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
@@ -82,5 +80,27 @@ a.article-title:hover {
 }
 
 .card{
+  text-align: center;
+
+  display: inline-block;
+  margin:10px;
+}
+
+
+.card-img-top{
+  width:170px;
+  height:170px;
+}
+
+.noadmincard{
+  text-align: center
+  margin-left: 100px;
+}
+
+.productsupplier{
+  display: inline-block;
+}
+
+.allcard{
   text-align: center;
 }
