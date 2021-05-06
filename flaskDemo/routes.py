@@ -189,6 +189,7 @@ def new_product():
 
 #all payment related
 @app.route("/payment_home")
+@login_required
 def payment_home():
     results = Payment.query.all()
     return render_template('payment_home.html', outString = results)
@@ -210,7 +211,8 @@ def update_payment(PaymentID):
     form = PaymentUpdateForm()
     if form.validate_on_submit():          # notice we are are not passing the dnumber from the form
         if currentPayment !=form.PaymentType.data:
-            payment.PaymentID=form.PaymentType.data
+            payment.PaymentType=form.PaymentType.data
+        payment.PaymentID= form.PaymentID.data
         db.session.commit()
         flash('This payment has been updated!', 'success')
         return redirect(url_for('payment', PaymentID=PaymentID))
@@ -247,6 +249,7 @@ def new_payment():
 
 #all category related
 @app.route("/category_home")
+@login_required
 def category_home():
     results = Category.query.all()
     return render_template('category_home.html', outString = results)

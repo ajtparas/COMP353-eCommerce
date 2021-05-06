@@ -9,6 +9,8 @@ from sqlalchemy.orm import relationship
 
 db.Model.metadata.reflect(db.engine)
 
+
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))

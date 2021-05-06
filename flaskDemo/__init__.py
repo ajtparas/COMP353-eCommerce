@@ -12,6 +12,34 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 
+
+
+r = db.engine.execute('select ShipperID, CompanyPhone from Shippers where\
+	CompanyName="Adidas" and CompanyRep="Justin"')
+
+names = [row for row in r]
+
+print(names)
+
+
+
+q = db.engine.execute('select Orders.OrderID, Shippers.ShipperID,\
+ Orders.OrderNumber from Orders inner join\
+	Shippers on Orders.ShipperID=Shippers.ShipperID')
+
+tnames = [row for row in q]
+
+print(tnames)
+
+
+
+
+w = db.engine.execute('select OrderNumber from Orders where CustomerID\
+	in (select CustomerID from Orders where PaymentID="21112")')
+wnames = [row for row in w]
+
+print(wnames)
+
 from flaskDemo import routes
 from flaskDemo import models
 
